@@ -11,7 +11,7 @@
 .container > .square {
     width: 25px;
     height: 25px;
-    border: 1px solid rgb(0, 68, 255);
+    border: 1px solid #388697;
     margin: 0.5px;
 }
 
