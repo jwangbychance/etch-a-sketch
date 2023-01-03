@@ -1,3 +1,14 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.numberGrid {
+    flex: 0;
+    align-self: center;
+    margin: 30px;
+}
+
 * {
     box-sizing: border-box;
 }

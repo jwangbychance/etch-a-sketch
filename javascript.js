@@ -1,4 +1,6 @@
 const container = document.querySelector('.container');
+let size;
+const remove = (sel) => document.querySelectorAll(sel).forEach(el => el.remove());
 
 for (let i = 0; i < 256; i++) {
     const div = document.createElement('div');
@@ -19,3 +21,28 @@ divs.forEach((div) => {
     div.addEventListener(('mouseover'), hoverColourAdd);
     div.addEventListener(('mouseout'), hoverColourRemove);
 });
+
+function buttonGrid() {
+    for (let i = 0; i < parseInt(size * size); i++) {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('square');
+        container.appendChild(newDiv);
+    }
+}
+
+function buttonPress() {
+    size = prompt('Please enter number of squares per side <= 100', '');
+
+    while (size > 100 || isNaN(parseInt(size))) {
+        if (size === null) {
+            break;
+        } else {
+            size = prompt('Enter appropriate number <= 100', '');
+        }
+    }
+    remove('.square');
+    buttonGrid();
+}
+
+const button = document.querySelector('.numberGrid');
+button.addEventListener('click', buttonPress);
