@@ -28,7 +28,7 @@ function hoverChange() {
 }
 
 function buttonGrid() {
-    for (let i = 0; i < parseInt(size * size) + 1; i++) {
+    for (let i = 0; i < parseInt(size * size); i++) {
         const newDiv = document.createElement('div');
         newDiv.classList.add('square');
         container.appendChild(newDiv);
