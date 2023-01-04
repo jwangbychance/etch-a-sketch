@@ -2,10 +2,13 @@ const container = document.querySelector('.container');
 let size;
 const remove = (sel) => document.querySelectorAll(sel).forEach(el => el.remove());
 
-for (let i = 0; i < 256; i++) {
-    const div = document.createElement('div');
-    div.classList.add('square');
-    container.appendChild(div);
+function initialise() {
+    for (let i = 0; i < 256; i++) {
+        const div = document.createElement('div');
+        div.classList.add('square');
+        container.appendChild(div);
+    }
+    hoverChange();
 }
 
 function hoverColourAdd() {
@@ -16,11 +19,13 @@ function hoverColourRemove() {
     this.style.cssText = 'background-color: ;';
 }
 
-divs = document.querySelectorAll('.square');
-divs.forEach((div) => {
-    div.addEventListener(('mouseover'), hoverColourAdd);
-    div.addEventListener(('mouseout'), hoverColourRemove);
-});
+function hoverChange() {
+    divs = document.querySelectorAll('.square');
+    divs.forEach((div) => {
+        div.addEventListener(('mouseover'), hoverColourAdd);
+        div.addEventListener(('mouseout'), hoverColourRemove);
+    });
+}
 
 function buttonGrid() {
     for (let i = 0; i < parseInt(size * size); i++) {
@@ -28,6 +33,7 @@ function buttonGrid() {
         newDiv.classList.add('square');
         container.appendChild(newDiv);
     }
+    hoverChange();
 }
 
 function buttonPress() {
@@ -46,3 +52,5 @@ function buttonPress() {
 
 const button = document.querySelector('.numberGrid');
 button.addEventListener('click', buttonPress);
+
+initialise();
