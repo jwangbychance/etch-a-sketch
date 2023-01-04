@@ -1,9 +1,10 @@
 const container = document.querySelector('.container');
 let size;
+const separator = document.createElement('div');
 const remove = (sel) => document.querySelectorAll(sel).forEach(el => el.remove());
 
 function initialise() {
-    for (let i = 0; i < 256; i++) {
+    for (let i = 0; i < 272; i++) {
         const div = document.createElement('div');
         div.classList.add('square');
         container.appendChild(div);
@@ -28,7 +29,11 @@ function hoverChange() {
 }
 
 function buttonGrid() {
-    for (let i = 0; i < parseInt(size * size); i++) {
+    for (let i = 0; i < parseInt(size * size) + 1; i++) {
+        if (i % (parseInt(size)) === 0) {
+            separator.classList.add('separator');
+            container.appendChild(separator);
+        }
         const newDiv = document.createElement('div');
         newDiv.classList.add('square');
         container.appendChild(newDiv);

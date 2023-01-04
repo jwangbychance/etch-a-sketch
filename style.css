@@ -28,8 +28,8 @@ body {
     margin: 0.5px;
 }
 
-
-.container > div:nth-child(17n + 1) {
+/* only works with 16x16 grid due to '17n' */
+.container > div:nth-child(17n + 1), .separator {
     width: 100%;
     border: 0;
     height: 0;
