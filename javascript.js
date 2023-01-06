@@ -37,6 +37,7 @@ function buttonGrid() {
         for (let i = 0; i < parseInt(size); i++) {
             const newDiv = document.createElement('div');
             newDiv.classList.add('square');
+            // newDiv.style.cssText = `width: ${960/size}px; height: ${960/size}px;`;
             container.appendChild(newDiv);
         }
         const newSeparator = document.createElement('div');
@@ -56,6 +57,7 @@ function buttonPress() {
             return buttonPress();
         }
     }
+    remove('.separator');
     remove('.square');
     buttonGrid();
 }

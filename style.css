@@ -18,8 +18,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
-    max-width: 960px;
+    align-items: center;
+    width: 960px;
+    height: 100%;
 }
 
 .container > .square {
@@ -29,7 +30,7 @@ body {
     margin: 0.5px;
 }
 
-.separator {
+.container > .separator {
     width: 100%;
     border: 0;
     height: 0;
