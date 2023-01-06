@@ -1,13 +1,17 @@
 const container = document.querySelector('.container');
 let size;
-const separator = document.createElement('div');
 const remove = (sel) => document.querySelectorAll(sel).forEach(el => el.remove());
 
 function initialise() {
-    for (let i = 0; i < 272; i++) {
-        const div = document.createElement('div');
-        div.classList.add('square');
-        container.appendChild(div);
+    for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 16; i++) {
+            const div = document.createElement('div');
+            div.classList.add('square');
+            container.appendChild(div);
+        }
+        const separator = document.createElement('div');
+        separator.classList.add('separator');
+        container.appendChild(separator);
     }
     hoverChange();
 }
@@ -29,14 +33,15 @@ function hoverChange() {
 }
 
 function buttonGrid() {
-    for (let i = 0; i < parseInt(size * size) + 1; i++) {
-        if (i % (parseInt(size)) === 0) {
-            separator.classList.add('separator');
-            container.appendChild(separator);
+    for (let i = 0; i < parseInt(size); i++) {
+        for (let i = 0; i < parseInt(size); i++) {
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('square');
+            container.appendChild(newDiv);
         }
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('square');
-        container.appendChild(newDiv);
+        const newSeparator = document.createElement('div');
+        newSeparator.classList.add('separator');
+        container.appendChild(newSeparator);
     }
     hoverChange();
 }
@@ -48,7 +53,7 @@ function buttonPress() {
         if (size === null) {
             break;
         } else {
-            size = prompt('Enter appropriate number <= 100', '');
+            return buttonPress();
         }
     }
     remove('.square');
