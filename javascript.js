@@ -7,6 +7,7 @@ function initialise() {
         for (let i = 0; i < 16; i++) {
             const div = document.createElement('div');
             div.classList.add('square');
+            div.style.cssText = `width: ${960/(256)}px; height: ${960/(256)}px;`;
             container.appendChild(div);
         }
         const separator = document.createElement('div');
@@ -37,7 +38,7 @@ function buttonGrid() {
         for (let i = 0; i < parseInt(size); i++) {
             const newDiv = document.createElement('div');
             newDiv.classList.add('square');
-            // newDiv.style.cssText = `width: ${960/size}px; height: ${960/size}px;`;
+            newDiv.style.cssText = `width: ${960/(size * size)}px; height: ${960/(size *size)}px;`;
             container.appendChild(newDiv);
         }
         const newSeparator = document.createElement('div');
