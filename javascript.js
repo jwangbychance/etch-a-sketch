@@ -18,11 +18,19 @@ function initialise() {
 }
 
 function hoverColourAdd() {
-    this.style.cssText = 'background-color: pink;';
+    if (size === null) {
+        this.style.cssText = `width: ${960/(size * size)}px; height: ${960/(size * size)}px; background-color: pink;`;
+    } else {
+        this.style.cssText = `width: ${960/(size * size)}px; height: ${960/(size * size)}px; background-color: pink;`;
+    }
 }
 
 function hoverColourRemove() {
-    this.style.cssText = 'background-color: ;';
+    if (size === null) {
+        this.style.cssText = `width: ${960/(size * size)}px; height: ${960/(size * size)}px; background-color: ;`;
+    } else {
+        this.style.cssText = `width: ${960/(size * size)}px; height: ${960/(size * size)}px; background-color: ;`;
+    }
 }
 
 function hoverChange() {
@@ -53,6 +61,7 @@ function buttonPress() {
 
     while (size > 100 || isNaN(parseInt(size))) {
         if (size === null) {
+            size = 16;
             break;
         } else {
             return buttonPress();
