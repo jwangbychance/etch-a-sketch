@@ -18,7 +18,7 @@ function initialise() {
 }
 
 function hoverColourAdd() {
-    if (size === null) {
+    if (size === undefined) {
         this.style.cssText = `width: ${960/(256)}px; height: ${960/(256)}px; background-color: pink;`;
     } else {
         this.style.cssText = `width: ${960/(size * size)}px; height: ${960/(size * size)}px; background-color: pink;`;
@@ -26,7 +26,7 @@ function hoverColourAdd() {
 }
 
 function hoverColourRemove() {
-    if (size === null) {
+    if (size === undefined) {
         this.style.cssText = `width: ${960/(256)}px; height: ${960/(256)}px; background-color: ;`;
     } else {
         this.style.cssText = `width: ${960/(size * size)}px; height: ${960/(size * size)}px; background-color: ;`;
