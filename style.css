@@ -18,9 +18,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    width: 960px;
-    height: 960px;
+    align-content: flex-start; /* work on this (specifically container)*/
+    width: 580px;
+    height: 580px;
+    margin: 0;
 }
 
 .container > .square {
