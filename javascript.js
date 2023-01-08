@@ -17,11 +17,15 @@ function initialise() {
     hoverChange();
 }
 
+function rainbowRGB() {
+    return Math.floor(Math.random() * 255);
+}
+
 function hoverColourAdd() {
     if (size === undefined) {
-        this.style.cssText = `width: ${580 / 16}px; height: ${580 / 16}px; background-color: pink;`;
+        this.style.cssText = `width: ${580 / 16}px; height: ${580 / 16}px; background-color: rgb(${rainbowRGB()}, ${rainbowRGB()}, ${rainbowRGB()});`;
     } else {
-        this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: pink;`;
+        this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: rgb(${rainbowRGB()}, ${rainbowRGB()}, ${rainbowRGB()});`;
     }
 }
 
