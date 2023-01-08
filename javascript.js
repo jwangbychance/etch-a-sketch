@@ -1,13 +1,14 @@
 const container = document.querySelector('.container');
-let size;
+let size = 16;
+let count = 1;
 const remove = (sel) => document.querySelectorAll(sel).forEach(el => el.remove());
 
 function initialise() {
-    for (let i = 0; i < 16; i++) {
-        for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < size; i++) {
+        for (let i = 0; i < size; i++) {
             const div = document.createElement('div');
             div.classList.add('square');
-            div.style.cssText = `width: ${580 / 16}px; height: ${580 / 16}px;`;
+            div.style.cssText = `width: ${580 / size}px; height: ${580 / size}px;`;
             container.appendChild(div);
         }
         const separator = document.createElement('div');
@@ -22,19 +23,17 @@ function rainbowRGB() {
 }
 
 function hoverColourAdd() {
-    if (size === undefined) {
-        this.style.cssText = `width: ${580 / 16}px; height: ${580 / 16}px; background-color: rgb(${rainbowRGB()}, ${rainbowRGB()}, ${rainbowRGB()});`;
+    if (count === 10) {
+        this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: black;`;
+        count = 1;
     } else {
         this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: rgb(${rainbowRGB()}, ${rainbowRGB()}, ${rainbowRGB()});`;
+        count++;
     }
 }
 
 function hoverColourRemove() {
-    if (size === undefined) {
-        this.style.cssText = `width: ${580 / 16}px; height: ${580 / 16}px; background-color: ;`;
-    } else {
-        this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: ;`;
-    }
+    this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: ;`;
 }
 
 function hoverChange() {
@@ -66,11 +65,13 @@ function buttonPress() {
     while (size > 100 || isNaN(parseInt(size))) {
         if (size === null) {
             size = 16;
+            count = 1;
             break;
         } else {
             return buttonPress();
         }
     }
+    count = 1;
     remove('.separator');
     remove('.square');
     buttonGrid();
