@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: flex-start; /* work on this (specifically container)*/
+    align-content: flex-start;
     width: 580px;
     height: 580px;
     margin: 0;
@@ -26,7 +26,6 @@ body {
 
 .container > .square {
     border: 1px solid #388697;
-    margin: 0.5px;
 }
 
 .container > .separator {
