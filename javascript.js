@@ -32,10 +32,6 @@ function hoverColourAdd(e) {
     }
 }
 
-function hoverColourRemove() {
-    this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: ;`;
-}
-
 function hoverChange() {
     divs = document.querySelectorAll('.square');
     divs.forEach((div) => {
