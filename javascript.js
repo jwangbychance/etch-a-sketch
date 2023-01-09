@@ -22,11 +22,11 @@ function rainbowRGB() {
     return Math.floor(Math.random() * 255);
 }
 
-function hoverColourAdd() {
-    if (count === 10) {
+function hoverColourAdd(e) {
+    if (count === 10 && e.buttons === 1) {
         this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: black;`;
         count = 1;
-    } else {
+    } else if (e.buttons === 1) {
         this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: rgb(${rainbowRGB()}, ${rainbowRGB()}, ${rainbowRGB()});`;
         count++;
     }
@@ -39,8 +39,7 @@ function hoverColourRemove() {
 function hoverChange() {
     divs = document.querySelectorAll('.square');
     divs.forEach((div) => {
-        div.addEventListener(('mouseover'), hoverColourAdd);
-        div.addEventListener(('mouseout'), hoverColourRemove);
+        div.addEventListener('mousemove', hoverColourAdd, {once: true});
     });
 }
 
