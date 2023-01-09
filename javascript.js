@@ -23,10 +23,11 @@ function rainbowRGB() {
 }
 
 function hoverColourAdd(e) {
-    if (count === 10 && e.buttons === 1) {
+    if (e.buttons !== 1) return;
+    if (count === 10) {
         this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: black;`;
         count = 1;
-    } else if (e.buttons === 1) {
+    } else {
         this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: rgb(${rainbowRGB()}, ${rainbowRGB()}, ${rainbowRGB()});`;
         count++;
     }
