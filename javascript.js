@@ -69,7 +69,7 @@ function buttonGrid() {
 function buttonPress() {
     size = prompt('Please enter number of squares per side <= 100', '');
 
-    while (size > 100 || isNaN(parseInt(size))) {
+    while (size > 100 || size < 1 || isNaN(size)) {
         if (size === null) {
             size = 16;
             count = 1;
