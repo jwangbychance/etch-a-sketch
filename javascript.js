@@ -33,9 +33,20 @@ function hoverColourAdd(e) {
     }
 }
 
+function clickColourAdd() {
+    if (count === 10) {
+        this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: black;`;
+        count = 1;
+    } else {
+        this.style.cssText = `width: ${580 / size}px; height: ${580 / size}px; background-color: rgb(${rainbowRGB()}, ${rainbowRGB()}, ${rainbowRGB()});`;
+        count++;
+    }
+}
+
 function hoverChange() {
     divs = document.querySelectorAll('.square');
     divs.forEach((div) => {
+        div.addEventListener('click', clickColourAdd);
         div.addEventListener('mouseenter', hoverColourAdd);
     });
 }
