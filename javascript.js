@@ -36,7 +36,7 @@ function hoverColourAdd(e) {
 function hoverChange() {
     divs = document.querySelectorAll('.square');
     divs.forEach((div) => {
-        div.addEventListener('mousemove', hoverColourAdd, {once: true});
+        div.addEventListener('mouseenter', hoverColourAdd);
     });
 }
 
